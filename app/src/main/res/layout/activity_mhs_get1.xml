@@ -53,8 +53,7 @@
                         android:id="@+id/tiet_meta_success"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="meta success"
-                        android:text="@{mhsmeta.success}"/>
+                        android:hint="meta success"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -65,8 +64,7 @@
                         android:id="@+id/tiet_meta_status"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="meta status"
-                        android:text="@{mhsmeta.statusString}"/>
+                        android:hint="meta status"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -77,8 +75,7 @@
                         android:id="@+id/tiet_meta_message"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="meta message"
-                        android:text="@{mhsmeta.message}"/>
+                        android:hint="meta message"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -89,8 +86,7 @@
                         android:id="@+id/tiet_meta_timestamp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="meta timestamp"
-                        android:text="@{mhsmeta.timeStampString}"/>
+                        android:hint="meta timestamp"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
