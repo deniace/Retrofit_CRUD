@@ -3,6 +3,7 @@ package com.deni.retrofitcrud;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -10,6 +11,7 @@ import com.deni.retrofitcrud.apiinterface.MahasiswaInterface;
 import com.deni.retrofitcrud.databinding.ActivityMainBinding;
 import com.deni.retrofitcrud.model.DataMahasiswa;
 import com.deni.retrofitcrud.model.MetaDataMahasiswa;
+import com.deni.retrofitcrud.view.MhsGet1Activity;
 
 import java.util.List;
 
@@ -61,5 +63,10 @@ public class MainActivity extends AppCompatActivity {
                 t.printStackTrace();
             }
         });
+    }
+
+    public void pindahGet1(View view){
+        Intent intent = new Intent(MainActivity.this, MhsGet1Activity.class);
+        startActivity(intent);
     }
 }

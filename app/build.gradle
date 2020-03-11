@@ -46,4 +46,7 @@ dependencies {
     // converter
     implementation 'com.squareup.retrofit2:converter-gson:2.7.2'
     implementation 'com.google.code.gson:gson:2.8.6'
+
+    // support liblary
+    implementation 'com.google.android.material:material:1.1.0'
 }

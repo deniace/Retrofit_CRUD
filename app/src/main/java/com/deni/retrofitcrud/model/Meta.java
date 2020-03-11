@@ -34,12 +34,20 @@ public class Meta {
         return success;
     }
 
+    public String getSuccess(){
+        return Boolean.toString(success);
+    }
+
     public void setSuccess(boolean success) {
         this.success = success;
     }
 
     public int getStatus() {
         return status;
+    }
+
+    public String getStatusString(){
+        return String.valueOf(status);
     }
 
     public void setStatus(int status) {
@@ -56,6 +64,10 @@ public class Meta {
 
     public int getTimestamp() {
         return timestamp;
+    }
+
+    public String getTimeStampString (){
+        return String.valueOf(timestamp);
     }
 
     public void setTimestamp(int timestamp) {

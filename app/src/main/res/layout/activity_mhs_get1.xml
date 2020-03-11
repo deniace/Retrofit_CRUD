@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    Deni Supriyatna (deni ace)
+    11 - 03 - 2010
+-->
+<layout>
+
+    <data>
+
+        <import type="com.deni.retrofitcrud.view.MhsGet1Activity" />
+
+        <variable
+            name="activity"
+            type="MhsGet1Activity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.MhsGet1Activity"
+        android:layout_margin="5dp">
+
+        <ScrollView
+            android:id="@+id/sv_mhs_get1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent">
+            <LinearLayout
+                android:id="@+id/ll_mhs_get1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Meta"
+                    android:textSize="20sp"
+                    android:textAlignment="center"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_meta_success"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tiet_meta_success"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="meta success"
+                        android:text="@{mhsmeta.success}"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_meta_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tiet_meta_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="meta status"
+                        android:text="@{mhsmeta.statusString}"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_meta_message"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tiet_meta_message"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="meta message"
+                        android:text="@{mhsmeta.message}"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_meta_timestamp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tiet_meta_timestamp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="meta timestamp"
+                        android:text="@{mhsmeta.timeStampString}"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Data"
+                    android:textSize="20sp"
+                    android:textAlignment="center"
+                    android:layout_margin="10dp"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_data_npm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tiet_data_npm"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="data npm"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_data_nama"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tiet_data_nama"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="data nama mahasiswa"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_data_jk"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tiet_data_jk"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="data jenis kelamin"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_data_jurusan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tiet_data_jurusan"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="data jurusan"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_data_no_hp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tiet_data_no_hp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="data no hp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_data_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tiet_data_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="data email"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_data_agama"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tiet_data_agama"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="data agama"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
