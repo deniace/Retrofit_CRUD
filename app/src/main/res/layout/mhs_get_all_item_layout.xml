@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Created by Deni Supriyatna on 12 - Mar - 2020.
+-->
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="mhsdata"
+            type="com.deni.retrofitcrud.model.DataMahasiswa" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:padding="5dp"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="3dp">
+
+        <LinearLayout
+            android:id="@+id/ll_mhs_get_all_item"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NPM Mahasiswa"
+                android:textSize="8sp"
+                />
+
+            <TextView
+                android:id="@+id/text_npm_mhs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{mhsdata.npm}"
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Mahasiswa"
+                android:textSize="8sp" />
+
+            <TextView
+                android:id="@+id/text_nama_mhs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{mhsdata.namaMahasiswa}"
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jenis Kelamin"
+                android:textSize="8sp" />
+
+            <TextView
+                android:id="@+id/text_jk_mhs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{mhsdata.jenisKelamin}"
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jurusan"
+                android:textSize="8sp" />
+
+            <TextView
+                android:id="@+id/text_jurusan_mhs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{mhsdata.jurusan}"
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No HP"
+                android:textSize="8sp" />
+
+            <TextView
+                android:id="@+id/text_no_hp_mhs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{mhsdata.noHp}"
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textSize="8sp" />
+
+            <TextView
+                android:id="@+id/text_email_mhs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{mhsdata.email}"
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Agama"
+                android:textSize="8sp" />
+
+            <TextView
+                android:id="@+id/text_agama_mhs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{mhsdata.agama}"
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+</layout>
