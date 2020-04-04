@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * Created by Deni Supriyatna on 10 - Mar - 2020.
+ * Email : denisupriyatna01@gmail.com
  */
 public class MetaDataMahasiswa {
     @SerializedName("meta")
@@ -14,8 +15,7 @@ public class MetaDataMahasiswa {
     private Meta meta;
     @SerializedName("data")
     @Expose
-    private List<DataMahasiswa> dataMahasiswa = null;
-//    private DataMahasiswa dataMahasiswa;
+    private List<DataMahasiswa> dataMahasiswa;
 
     public MetaDataMahasiswa(){}
 

@@ -17,6 +17,7 @@ import java.util.List;
 
 /**
  * Created by Deni Supriyatna (deni ace) on 12 - Mar - 2020.
+ * Email : denisupriyatna01@gmail.com
  */
 public class MhsGetAllAdapter extends RecyclerView.Adapter<MhsGetAllAdapter.MhsGetAllViewHolder>{
     private List<DataMahasiswa> list;

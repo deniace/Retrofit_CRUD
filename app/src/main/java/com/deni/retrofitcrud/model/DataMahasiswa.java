@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by Deni Supriyatna on 10 - Mar - 2020.
+ * Email : denisupriyatna01@gmail.com
  */
 public class DataMahasiswa {
     @SerializedName("npm")

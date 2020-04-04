@@ -6,8 +6,9 @@ import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by Deni Supriyatna on 11 - Mar - 2020.
+ * email : denisupriyatna01@gmail.com
  */
-public class MetaDataMahasiswaItem {
+public class MetaDataMahasiswaSingle {
     @SerializedName("meta")
     @Expose
     private Meta meta;
