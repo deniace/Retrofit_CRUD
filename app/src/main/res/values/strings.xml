@@ -9,5 +9,17 @@
     <string name="get_all">get all</string>
     <string name="get1">get1</string>
     <string name="post">post</string>
-    <string name="error_get_data">Gagal mengambil data tari server</string>
+    <string name="error_get_data">Failed when getting data from server</string>
+    <string name="error_send_data">Failed sending data to server</string>
+    <string name="data">Data</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="religion">Religion</string>
+    <string name="email">Email</string>
+    <string name="number_phone">Number Phone</string>
+    <string name="gender">Gender</string>
+    <string name="major">Major</string>
+    <string name="college_student_name">Collage student name</string>
+    <string name="delete_confirmation">Delete Confirmation</string>
+    <string name="you_sure">Are you sure?</string>
 </resources>

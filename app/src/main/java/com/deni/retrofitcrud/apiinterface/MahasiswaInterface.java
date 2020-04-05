@@ -1,10 +1,15 @@
 package com.deni.retrofitcrud.apiinterface;
 
+import com.deni.retrofitcrud.model.DataMahasiswa;
 import com.deni.retrofitcrud.model.MetaDataMahasiswa;
 import com.deni.retrofitcrud.model.MetaDataMahasiswaSingle;
 
 import retrofit2.Call;
+import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 /**
@@ -17,4 +22,13 @@ public interface MahasiswaInterface {
 
     @GET("mahasiswa/{npm}")
     Call<MetaDataMahasiswaSingle> getMahasiswaItem(@Path("npm") String npm);
+
+    @POST("mahasiswa/")
+    Call<MetaDataMahasiswaSingle> postMahasiswa(@Body DataMahasiswa dataMahasiswa);
+
+    @PUT("mahasiswa/")
+    Call<MetaDataMahasiswaSingle> putMahasiswa(@Body DataMahasiswa dataMahasiswa);
+
+    @DELETE("mahasiswa/{npm}")
+    Call<MetaDataMahasiswaSingle> deleteMahasiswaItem(@Path("npm") String npm);
 }

@@ -1,12 +1,14 @@
 package com.deni.retrofitcrud.view;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,7 +21,9 @@ import com.deni.retrofitcrud.apiinterface.MahasiswaInterface;
 import com.deni.retrofitcrud.databinding.ActivityMhsGetAllBinding;
 import com.deni.retrofitcrud.model.DataMahasiswa;
 import com.deni.retrofitcrud.model.MetaDataMahasiswa;
+import com.deni.retrofitcrud.model.MetaDataMahasiswaSingle;
 
+import java.io.IOException;
 import java.util.List;
 
 import retrofit2.Call;
@@ -38,6 +42,8 @@ public class MhsGetAllActivity extends AppCompatActivity {
     private MhsGetAllAdapter adapter;
     private List<DataMahasiswa> list;
     private String TAG = "MhsGetAllActivity";
+    private int itemIndex = -1;
+    private int itemIndexFull = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +63,12 @@ public class MhsGetAllActivity extends AppCompatActivity {
     private MhsGetAllAdapter.OnItemClickListener listener = new MhsGetAllAdapter.OnItemClickListener() {
         @Override
         public void onItemClick(DataMahasiswa item) {
-            Toast.makeText(MhsGetAllActivity.this, item.getNpm(), Toast.LENGTH_SHORT).show();
+            itemIndex = adapter.getList().indexOf(item);
+            itemIndexFull = adapter.getListFull().indexOf(item);
+            Intent intent = new Intent(MhsGetAllActivity.this, MhsDetailActivity.class);
+            intent.putExtra("STATE", 1);
+            intent.putExtra("NPM", item.getNpm());
+            startActivityForResult(intent, 1);
         }
     };
 
@@ -110,5 +121,75 @@ public class MhsGetAllActivity extends AppCompatActivity {
                 Toast.makeText(MhsGetAllActivity.this, R.string.error_get_data, Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    /**
+     * untuk pindah ke tambah data
+     * @param view = fab_tambah_mhs
+     */
+    public void addNew(View view){
+        Intent intent = new Intent(MhsGetAllActivity.this, MhsDetailActivity.class);
+        intent.putExtra("STATE", 0);
+        intent.putExtra("NPM", "");
+        startActivityForResult(intent, 1);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.d(TAG, "onActivityResult: result code = "+resultCode+" requestCode = "+requestCode);
+        if (resultCode == RESULT_OK){
+            String npm = data.getStringExtra("NPM");
+            String action = data.getStringExtra("ACTION");
+            Log.d(TAG, "onActivityResult: NPM ="+npm);
+
+            if(action.equals("DELETE")){
+                adapter.getList().remove(itemIndex);
+                adapter.getListFull().remove(itemIndexFull);
+                adapter.notifyDataSetChanged();
+            }else {
+                binding.srlMhsGetAll.setRefreshing(true);
+                Call<MetaDataMahasiswaSingle> call = mahasiswaInterface.getMahasiswaItem(npm);
+
+                call.enqueue(new Callback<MetaDataMahasiswaSingle>() {
+                    @Override
+                    public void onResponse(Call<MetaDataMahasiswaSingle> call, Response<MetaDataMahasiswaSingle> response) {
+                        if(response.isSuccessful()){
+                            if (response.body().getMeta().isSuccess()){
+                                binding.srlMhsGetAll.setRefreshing(false);
+                                DataMahasiswa data = response.body().getDataMahasiswa();
+
+                                if(action.equals("NEW")){
+                                    adapter.getList().add(data);
+                                    adapter.getListFull().add(data);
+                                }else{
+                                    adapter.getList().set(itemIndex, data);
+                                    adapter.getListFull().set(itemIndexFull,data);
+                                }
+                                adapter.notifyDataSetChanged();
+                            }else {
+                                binding.srlMhsGetAll.setRefreshing(false);
+                                Toast.makeText(MhsGetAllActivity.this, response.body().getMeta().getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        }else {
+                            binding.srlMhsGetAll.setRefreshing(false);
+                            Toast.makeText(MhsGetAllActivity.this, R.string.error_get_data, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<MetaDataMahasiswaSingle> call, Throwable t) {
+                        binding.srlMhsGetAll.setRefreshing(false);
+                        t.printStackTrace();
+                        Toast.makeText(MhsGetAllActivity.this, R.string.error_get_data, Toast.LENGTH_SHORT).show();
+                        if(t instanceof IOException){
+                            Toast.makeText(MhsGetAllActivity.this, "Network Failure", Toast.LENGTH_SHORT).show();
+                        }else {
+                            Toast.makeText(MhsGetAllActivity.this, "Big Problem", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+        }
     }
 }

@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.deni.retrofitcrud.apiinterface.MahasiswaInterface;
 import com.deni.retrofitcrud.databinding.ActivityMainBinding;
 import com.deni.retrofitcrud.model.MetaDataMahasiswaSingle;
+import com.deni.retrofitcrud.view.MhsDetailActivity;
 import com.deni.retrofitcrud.view.MhsGet1Activity;
 import com.deni.retrofitcrud.view.MhsGetAllActivity;
 
@@ -86,6 +87,16 @@ public class MainActivity extends AppCompatActivity {
      */
     public void goToGetAll(View view){
         Intent intent = new Intent(MainActivity.this, MhsGetAllActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * pindah ke activity mhsDetailActivity
+     * @param view btn_post
+     */
+    public void goToSendData(View view){
+        Intent intent = new Intent(MainActivity.this, MhsDetailActivity.class);
+        intent.putExtra("STATE", 0);
         startActivity(intent);
     }
 }
