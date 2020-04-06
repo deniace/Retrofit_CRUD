@@ -3,6 +3,8 @@ package com.deni.retrofitcrud.apiinterface;
 import com.deni.retrofitcrud.model.DataMahasiswa;
 import com.deni.retrofitcrud.model.MetaDataMahasiswa;
 import com.deni.retrofitcrud.model.MetaDataMahasiswaSingle;
+import com.deni.retrofitcrud.model.MetaDataPaging;
+import com.deni.retrofitcrud.model.PagingPost;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -25,6 +27,9 @@ public interface MahasiswaInterface {
 
     @POST("mahasiswa/")
     Call<MetaDataMahasiswaSingle> postMahasiswa(@Body DataMahasiswa dataMahasiswa);
+
+    @POST("mahasiswa/paging")
+    Call<MetaDataPaging> getPagingMahasiswa(@Body PagingPost pagingPost);
 
     @PUT("mahasiswa/")
     Call<MetaDataMahasiswaSingle> putMahasiswa(@Body DataMahasiswa dataMahasiswa);
